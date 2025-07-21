@@ -38,22 +38,17 @@ window.addEventListener("load", () => {
   });
 
   const hamburger = document.getElementsByClassName("hamburger")[0];
-  const hamburger_close = document.getElementsByClassName("hamburger-close")[0];
+
   const nbar = document.getElementsByClassName("navbar")[0];
   hamburger.addEventListener("click", () => {
-    nbar.style.display = "flex";
-    hamburger_close.style.display = "block";
-    hamburger.style.display = "none";
+    hamburger.classList.toggle("active");
+    if (nbar.style.display === "flex") nbar.style.display = "none";
+    else nbar.style.display = "flex";
     careers_wrapper.addEventListener("click", () => {
       if (careers_nav_item_menu.style.display === "flex")
         careers_nav_item_menu.style.display = "none";
       else careers_nav_item_menu.style.display = "flex";
     });
-  });
-  hamburger_close.addEventListener("click", () => {
-    nbar.style.display = "none";
-    hamburger_close.style.display = "none";
-    hamburger.style.display = "block";
   });
 
   document
