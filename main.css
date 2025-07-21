@@ -5,11 +5,17 @@
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: row;
   column-gap: 10px;
   justify-content: center;
+  z-index: 10;
+  background: white;
+  width: 100vw;
+  height: 5vh;
+  top: 0;
+  align-items: center;
 }
 
 .navbar > p {
@@ -26,8 +32,14 @@
   content: " |";
 }
 
-#careers-nav-item::after {
-  content: "\25BE|";
+#careers-wrapper > p {
+  font-size: large;
+}
+
+#careers-wrapper > p::after {
+  content: "▼|";
+  width: 1px;
+  height: 1px;
 }
 
 #sherut-nav-item::after {
@@ -35,11 +47,12 @@
 }
 
 #careers-nav-item-menu {
+  row-gap: 15px;
   position: absolute;
-  padding: 5px;
+  padding: 20px 5px;
   top: 70%;
   width: 800px;
-  height: 300px;
+  height: fit-content;
   background: darkblue;
 }
 
@@ -47,20 +60,23 @@
   color: white;
   font-weight: 600;
   width: fit-content;
+  margin: 10px;
 }
 
 #careers-nav-item-menu > p:hover {
   background: white;
+  font-weight: 600;
   color: darkblue;
   cursor: pointer;
 }
 
 #image-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  position: relative;
+  position: fixed;
+  margin-bottom: 10px;
+  z-index: 100;
+  right: 5%;
+  top: 0;
+  height: fit-content;
 }
 
 #image-wrapper > img {
@@ -68,10 +84,204 @@
   height: 4rem;
 }
 
+@media (max-width: 166px) {
+  #image-wrapper {
+    font-size: small;
+  }
+}
+
+.hamburger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: darkblue;
+  cursor: pointer;
+}
+
+.hamburger-close {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: black;
+  z-index: 100;
+  background: white;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#home-item {
+  display: none;
+}
+
+#contact-form {
+  color: white;
+  font-weight: 600;
+  float: left;
+  background: linear-gradient(155deg, #154b9c, #213b7f) !important;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-left: 20%;
+  margin-top: 5%;
+  padding: 10px;
+  width: 400px;
+  height: 500px;
+  align-items: center;
+}
+
+.how-it-works-card-expander {
+  display: none;
+}
+i {
+  margin-left: 5px;
+}
+@media (max-width: 925px) {
+  #image-wrapper {
+    position: absolute;
+  }
+  #footer-whatsapp-phone-view {
+    display: flex !important;
+    flex-direction: row;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    column-gap: 5px;
+  }
+
+  #footer-whatsapp-phone-view > div {
+    display: flex !important;
+    flex-direction: row;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #06f;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    height: 50px;
+  }
+
+  #floating-whatsapp-popup {
+    display: none !important;
+  }
+
+  #footer-input-fields {
+    flex-direction: column !important;
+    row-gap: 10px;
+    justify-items: center;
+  }
+  .questions {
+    flex-direction: column !important;
+  }
+  .question {
+    width: 100% !important;
+  }
+
+  #how-it-works-grid {
+    display: flex !important;
+    flex-direction: column;
+    width: 100vw;
+    row-gap: 10px;
+  }
+
+  .how-it-works-card-expander {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: inline;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  #how-it-works-grid > div::before {
+    display: none;
+  }
+  .how-it-works-card {
+    display: none;
+  }
+
+  .info-box {
+    width: 100% !important;
+    transform: none !important;
+  }
+  #contact-form {
+    display: none !important;
+  }
+
+  #careers-wrapper > p::after {
+    content: "▼";
+  }
+  #home-item {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    position: relative;
+    row-gap: 30px;
+    width: 100vw;
+    margin-top: 50px;
+    height: fit-content;
+    align-items: start;
+    display: none;
+    flex-direction: column;
+  }
+
+  .navbar > p:hover {
+    font-weight: 300;
+    color: black;
+    cursor: pointer;
+  }
+
+  .navbar > p::after {
+    content: "";
+  }
+
+  #careers-nav-item-menu {
+    background: white;
+    position: relative;
+    padding: 20px 5px;
+    width: 100vw;
+    height: fit-content;
+    display: none;
+    flex-direction: column;
+  }
+
+  #careers-nav-item-menu > p {
+    color: black;
+    font-weight: 300;
+    width: fit-content;
+    padding-bottom: 10px;
+    width: 100vw;
+    border-bottom: 1px dashed #aad6be;
+  }
+
+  #careers-nav-item-menu > p:hover {
+    color: black;
+    font-weight: 300;
+  }
+
+  #why-to-learn-inside-container {
+  }
+}
+
 #banner {
   background: linear-gradient(155deg, #154b9c, #213b7f) !important;
   justify-items: center;
   padding: 0;
+  margin-top: 5vh;
+  position: relative;
 }
 
 #banner > h2 {
@@ -161,22 +371,6 @@
   margin: 15px;
 }
 
-#contact-form {
-  color: white;
-  font-weight: 600;
-  float: left;
-  background: linear-gradient(155deg, #154b9c, #213b7f) !important;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-  margin-left: 20%;
-  margin-top: 5%;
-  padding: 10px;
-  width: 400px;
-  height: 500px;
-  align-items: center;
-}
-
 .contact-form-input {
   background: white;
   color: black;
@@ -194,17 +388,30 @@
   cursor: pointer;
 }
 
-#contact-form button {
+.contact-form-button {
   border: solid #00b8d4;
   background: #fff6df;
-  width: 40%;
-  height: 40%;
-  font-size: 1.2rem;
+  width: 10rem;
+  height: 50px;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
 .contact-form-input input {
   border: none;
+}
+
+#why-to-learn-text-container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  margin-top: 20px;
+}
+
+#why-to-learn-text-container > h1 {
+  text-align: center;
+  font-size: 3.2rem;
 }
 
 #why-to-learn-container {
@@ -213,20 +420,10 @@
   row-gap: 30px;
   background: url("./assets/why-to-learn-bg.png");
   height: fit-content;
-  width: 100vw;
   position: relative;
   margin-top: 50px;
   padding-bottom: 50px;
-}
-
-#why-to-learn-container > h1 {
-  font-size: 3.2rem;
-  text-align: center;
-  margin: 30px;
-}
-
-#why-to-learn-container > p {
-  margin-right: 400px;
+  width: 100%;
 }
 
 #why-to-learn-inside-container {
@@ -235,14 +432,13 @@
   column-gap: 30px;
   height: fit-content;
   width: fit-content;
-  margin-right: 400px;
+  align-self: center;
   flex-wrap: wrap;
 }
 
 .info-box {
   min-height: fit-content;
-  text-align: start;
-  width: 30vw;
+  width: 500px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -281,25 +477,26 @@
 #general-info-wrapper {
   background: url("./assets/why-to-learn-bg.png");
   width: 100vw;
-  height: 2000px;
+  height: fit-content;
+  padding: 50px 0;
 }
 
 #general-info {
   width: 80%;
+  justify-self: center;
+  text-align: start;
 }
 
 #general-info > p {
-  margin-right: 400px;
   font-size: 1.2rem;
 }
 
 #general-info > h2 {
   text-align: center;
-  margin-right: 400px;
 }
 
 #how-it-works-grid {
-  margin-right: 400px;
+  justify-self: center;
   position: relative;
   margin-top: 50px;
   align-self: center;
@@ -371,6 +568,257 @@
 #grid-item-d {
   padding: 30px;
   position: relative;
-
   background-color: #06f;
+}
+
+#QA-Section {
+  text-align: center;
+  width: 100vw;
+}
+
+#QA-Section h3 {
+  font-size: 1.7rem;
+  margin-bottom: 100px;
+}
+
+#questions-wrapper {
+  background: #fff6df;
+  padding: 50px 20vw;
+}
+
+#public-service-wrapper {
+  background: url("./assets/why-to-learn-bg.png");
+  padding: 50px 20vw;
+}
+
+.questions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 100px;
+  row-gap: 30px;
+}
+
+@media (max-width: 890px) {
+  #questions {
+    flex-direction: column; /* Stack vertically */
+    gap: 20px; /* Space between questions */
+  }
+
+  .question {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+.upper-border {
+  border-top: 1px solid #ccc;
+}
+
+.beneath-border {
+  border-bottom: 1px solid #ccc;
+}
+
+.question {
+  text-align: start;
+  color: #007cba;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  padding: 30px 0;
+  width: calc(50% - 50px);
+  border-top: 1px solid #ccc;
+}
+
+.question::before {
+  content: "▼";
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question.open::before {
+  content: "▲";
+}
+
+.answer {
+  color: black;
+  font-weight: 100;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  position: relative;
+  top: 10px;
+}
+
+.question.open .answer {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.question > p {
+  width: 70%;
+}
+
+#contact-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #213b7f;
+  color: white;
+  padding: 30px 0;
+}
+
+#contact-footer > p {
+  margin: 30px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+#contact-footer > a {
+  font-size: 0.7rem;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+#footer-input-fields {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  margin-bottom: 50px;
+}
+
+#submission-success-modal {
+  position: fixed;
+  padding: 50px;
+  row-gap: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 35vh;
+  border: 2px solid gray;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+}
+#submission-success-modal > h1 {
+  font-size: 2rem;
+}
+#close-button-success-modal {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+}
+.checkmark-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4caf50; /* green */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+}
+
+.checkmark {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#popupForm {
+  padding: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 50%;
+  border: 1px transparent;
+  border-radius: 50%;
+  animation: slideDown 0.6s ease forwards;
+  background: url(https://www.hyperactive.co.il/static/media/modal-bg.76e0ddc9.jpg);
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  color: #154b9c;
+}
+
+#popupForm > input {
+  width: 50%;
+  height: 30%;
+}
+
+#popupForm > button[type="submit"] {
+  padding: 10px 20px;
+  width: 30%;
+  color: white;
+  background: #154b9c;
+  font-weight: 600;
+}
+
+#popupForm > button[type="submit"]::after {
+  content: " >>";
+}
+
+#close-button {
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#footer-whatsapp-phone-view {
+  display: none;
+}
+input.invalid {
+  color: red;
+  font-weight: bold;
+}
+#floating-whatsapp-popup {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  height: 35px;
+  position: fixed;
+  background: #06f;
+  bottom: 1vh;
+  right: 1vw;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  border: 2px solid #25d366;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
 }
