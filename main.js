@@ -42,6 +42,30 @@ window.addEventListener("load", () => {
   const nbar = document.getElementsByClassName("navbar")[0];
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
+
+    const existingWrapper = document.getElementById("image-wrapper");
+
+    if (existingWrapper) {
+      // Element exists → remove it
+      existingWrapper.remove();
+    } else {
+      // Element doesn't exist → add it
+      const wrapper = document.createElement("div");
+      wrapper.id = "image-wrapper";
+
+      const img = document.createElement("img");
+      img.src = "./assets/hyperactive.png";
+      img.alt = "";
+
+      const text = document.createElement("p");
+      text.textContent = "בית הספר להיי-טק הטוב בישראל";
+
+      wrapper.appendChild(img);
+      wrapper.appendChild(text);
+
+      nbar.appendChild(wrapper);
+    }
+
     if (nbar.style.display === "flex") nbar.style.display = "none";
     else nbar.style.display = "flex";
     careers_wrapper.addEventListener("click", () => {

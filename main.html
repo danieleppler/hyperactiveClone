@@ -5,6 +5,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <header>
@@ -13,14 +14,18 @@
         <span></span>
         <span></span>
       </button>
-
-      <div id="image-wrapper">
+      <div id="image-wrapper-mobile">
         <img src="./assets//hyperactive.png" alt="" />
+        <p>בית הספר להיי-טק הטוב בישראל</p>
       </div>
       <nav dir="rtl" class="navbar">
+        <div id="image-wrapper">
+          <img src="./assets//hyperactive.png" alt="" />
+          <p>בית הספר להיי-טק הטוב בישראל</p>
+        </div>
         <p id="home-item">בית</p>
         <div id="careers-wrapper">
-          <p id="careers-nav-item">קריירות</p>
+          <a id="careers-nav-item">קריירות</a>
           <div id="careers-nav-item-menu">
             <p>סייבר ואבטחת מידע | ethical hacking</p>
             <p>ניהול רשתות ומחשוב | system adminstration</p>
@@ -32,12 +37,12 @@
             <p>פיתוח אפליקציות מובייל | ios/android</p>
           </div>
         </div>
-        <p>למה ללמוד אצלנו?</p>
-        <p>כאן תמצאו את הבוגרים שלנו</p>
-        <p>קצת עלינו</p>
-        <p>איך זה עובד</p>
-        <p>שאלות שכנראה תשאלו</p>
-        <p id="sherut-nav-item">שירות לציבור</p>
+        <a href="#why-to-learn-container">למה ללמוד אצלנו?</a>
+        <a href="#companies-list">כאן תמצאו את הבוגרים שלנו</a>
+        <a href="#general-info">קצת עלינו</a>
+        <a href="#how-it-works-grid">איך זה עובד</a>
+        <a href="#questions-wrapper">שאלות שכנראה תשאלו</a>
+        <a href="#public-service-wrapper" id="sherut-nav-item">שירות לציבור</a>
       </nav>
     </header>
     <div dir="rtl" id="banner">

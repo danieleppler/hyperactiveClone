@@ -2,6 +2,11 @@
   box-sizing: border-box;
   font-family: "Assistant", sans-serif;
   margin: 0;
+  scroll-behavior: smooth;
+}
+
+input {
+  outline: none;
 }
 
 .navbar {
@@ -18,25 +23,27 @@
   align-items: center;
 }
 
-.navbar > p {
+.navbar > a {
   font-size: large;
+  text-decoration: none;
+  color: black;
 }
 
-.navbar > p:hover {
+.navbar > a:hover {
   font-weight: 600;
   color: darkblue;
   cursor: pointer;
 }
 
-.navbar > p::after {
+.navbar > a::after {
   content: " |";
 }
 
-#careers-wrapper > p {
+#careers-wrapper > a {
   font-size: large;
 }
 
-#careers-wrapper > p::after {
+#careers-wrapper > a::after {
   content: "▼|";
   width: 1px;
   height: 1px;
@@ -71,23 +78,24 @@
 }
 
 #image-wrapper {
-  position: fixed;
+  row-gap: 0px;
+  position: relative;
+  top: 10px;
+  margin-left: 5px;
   margin-bottom: 10px;
   z-index: 100;
-  right: 5%;
-  top: 0;
   height: fit-content;
+}
+
+#image-wrapper > p {
+  position: relative;
+  font-size: 10px;
+  top: -22px;
 }
 
 #image-wrapper > img {
   width: 8rem;
   height: 4rem;
-}
-
-@media (max-width: 166px) {
-  #image-wrapper {
-    font-size: small;
-  }
 }
 
 .hamburger {
@@ -136,6 +144,16 @@
   align-items: center;
 }
 
+#contact-form div {
+  justify-items: start;
+  width: 300px;
+}
+
+#contact-form div input[type="checkbox"] {
+  display: inline;
+  margin-left: 20px;
+}
+
 .how-it-works-card-expander {
   display: none;
 }
@@ -150,13 +168,106 @@ i {
   display: block;
   transition: all 0.3s ease;
 }
+
+#image-wrapper-mobile {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  #companies-list {
+    margin-right: 0 !important;
+  }
+
+  #banner > h2 {
+    font-size: 4rem !important;
+  }
+
+  #careers-list-wrapper {
+    align-self: start !important;
+    height: 1100px !important;
+  }
+  #careers-list {
+    display: flex;
+    flex-direction: column !important;
+    justify-self: start !important;
+    position: relative;
+  }
+
+  #careers-list > div {
+    padding: 2px;
+    border: 1px solid hsla(0, 0%, 80%, 0.5);
+    width: 90vw !important;
+
+    display: flex;
+    flex-direction: row !important;
+    font-size: 13px !important;
+  }
+
+  #careers-list > div::before {
+    content: "←";
+    position: absolute;
+    left: -50px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+  }
+
+  #careers-list img {
+    height: 2.5rem;
+    width: 2.5rem !important;
+  }
+
+  .seperator {
+    width: 4px !important;
+    height: 40px !important;
+  }
+}
+
 @media (max-width: 925px) {
+  #image-wrapper-mobile {
+    display: block;
+    row-gap: 0px;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    display: block;
+    z-index: 100;
+    height: fit-content;
+  }
+
+  #image-wrapper-mobile > p {
+    position: relative;
+    font-size: 10px;
+    top: -22px;
+  }
+
+  #image-wrapper-mobile > img {
+    width: 8rem;
+    height: 4rem;
+  }
+
   #careers-list-wrapper {
     width: 100% !important;
+    float: none;
   }
 
   #image-wrapper {
-    position: absolute;
+    row-gap: 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: block;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    z-index: 100;
+    height: fit-content;
   }
   #footer-whatsapp-phone-view {
     background: white;
@@ -206,7 +317,7 @@ i {
   #how-it-works-grid {
     display: flex !important;
     flex-direction: column;
-    width: 100vw;
+    width: 100vw !important;
     row-gap: 10px;
     padding: 50px;
   }
@@ -264,13 +375,13 @@ i {
     flex-direction: column;
   }
 
-  .navbar > p:hover {
+  .navbar > a:hover {
     font-weight: 300;
     color: black;
     cursor: pointer;
   }
 
-  .navbar > p::after {
+  .navbar > a::after {
     content: "";
   }
 
@@ -316,26 +427,22 @@ i {
   justify-items: center;
   padding: 0;
   margin-top: 5vh;
+  height: 25vh;
   position: relative;
 }
 
 #banner > h2 {
+  position: relative;
   color: white;
-  font-size: 5rem;
+  font-size: 6rem;
+  align-self: center;
+  justify-self: center;
+  font-weight: 700;
 }
 
 #banner > h3 {
   color: white;
-  font-size: 3rem;
-}
-
-#banner h2,
-#banner h3 {
-  margin: 0;
-}
-
-#banner h3 {
-  margin-bottom: 0.2rem;
+  font-size: 5rem;
 }
 
 #mini-banner {
@@ -360,6 +467,9 @@ i {
   font-size: 1.2rem;
   width: 50%;
   float: right;
+  align-self: center;
+  top: 40px;
+  right: 10vw;
 }
 
 #careers-list-wrapper-header {
@@ -372,7 +482,8 @@ i {
 #careers-list {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 75%;
+  justify-self: center;
   flex-wrap: wrap;
   column-gap: 50px;
   row-gap: 40px;
@@ -536,10 +647,11 @@ i {
   margin-top: 50px;
   align-self: center;
   display: grid;
-  max-height: 800px;
+  max-height: fit-content;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   color: white;
+  width: 60%;
 }
 
 #grid-item-a {
@@ -558,7 +670,7 @@ i {
   height: 0;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
-  border-right: 30px solid #0598a8; /* left-pointing arrow */
+  border-right: 30px solid #0598a8;
   z-index: 2;
 }
 
@@ -577,7 +689,7 @@ i {
   height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-top: 45px solid #39a4dc; /* arrow color */
+  border-top: 45px solid #39a4dc;
   z-index: 2;
 }
 
@@ -765,7 +877,7 @@ i {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #4caf50; /* green */
+  background-color: #4caf50;
   display: flex;
   justify-content: center;
   align-items: center;
